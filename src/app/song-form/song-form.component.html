@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-center align-items-center vh-100" style="background-color: rgb(39,39,39);">
+    <form [formGroup]="songForm" (ngSubmit)="onSubmit()" class="mt-4 text-center" style="max-width: 400px;">
+        <div class="form-group my-4">
+            <label class="text-light my-2" for="name" style="color: rgb(95, 42, 218);">Name of the song:</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+        </div>
+
+        <div class="form-group my-4">
+            <label class="text-light my-2" for="genre" style="color: rgb(95, 42, 218);">Genre:</label>
+            <select id="genre" class="form-control form-select" [compareWith]="compareGenres" formControlName="genre">
+                <option *ngFor="let genre of genres" [ngValue]="genre">{{genre.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group my-4">
+            <label class="text-light my-2" for="authorsArr" style="color: rgb(95, 42, 218);">Authors:</label>
+            <select multiple class="form-control text-center" [compareWith]="compareAuthors" formControlName="authorsArr">
+                <option *ngFor="let author of authors" [ngValue]="author">{{author.firstName + ' ' + author.lastName}}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group my-4">
+            <label class="text-light my-2" for="performerArr" style="color: rgb(95, 42, 218);">Performers : (Full name - Artist name) </label>
+            <select multiple class="form-control text-center" [compareWith]="comparePerformers" formControlName="performerArr">
+                <option *ngFor="let performer of performers" [ngValue]="performer">{{performer.firstName + ' ' + performer.lastName+ ' - '+ performer.artistName}}
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group my-4">
+            <label class="text-light my-2" for="performerArr" style="color: rgb(95, 42, 218);">Lyrics: </label>
+            <textarea name="lyricsTextArea" class="form-control text-center" id="lyrics" formControlName="lyrics" ></textarea>
+        </div>
+
+    
+
+        <div class="text-center py-4">
+            <button *ngIf="!isUpdating()" type="submit" class="btn btn-primary"
+                style="background-color: rgb(74, 37, 143); border-color: rgb(74, 37, 143);">Submit</button>
+                <button *ngIf="isUpdating()" type="button" (click)="updateSong()" class="btn btn-primary"
+                style="background-color: rgb(74, 37, 143); border-color: rgb(74, 37, 143);">Update</button>
+        </div>
+    </form>
+</div>

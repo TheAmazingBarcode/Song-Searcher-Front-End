@@ -1,0 +1,22 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="author-card.component.css">
+</head>
+
+<div class="card mx-auto mb-2 text-center text-light my-4 py-4">
+    <img class="card-img-top"
+        src="../../assets/img/png-clipart-musical-note-eighth-note-miscellaneous-music-symbols-removebg-preview.png">
+
+    <div class="card-header my-3 py-4">
+        Author
+    </div>
+
+    <div class="card-body">
+        {{author.firstName+' '+author.lastName}}
+    </div>
+
+    <div class="card-footer mt-2 pt-4">
+        <a (click)="navigate()" class="py-2 px-4 btn btn-primary">View songs</a>
+    </div>
+</div>

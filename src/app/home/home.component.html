@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.component.css">
+</head>
+
+<body>
+    <router-outlet></router-outlet>
+    <div class="container-fluid text-light py-4" id="most-popular-banner">
+        <h2 class="text-center">{{bannerText}}</h2>
+    </div>
+
+    <div class="container-fluid d-flex flex-column min-vh-100 px-3" id="song-container">
+        <div class="row py-2">
+          <div *ngFor="let song of songs"  class="col-md-3">
+                <app-song [song]="song"></app-song>
+            </div>
+        </div>
+      </div>
+
+</body>
+
+</html>

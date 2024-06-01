@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./song-detailed.component.css">
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-between text-light py-4" id="song-banner">
+        <h2 class="text-center flex-grow-1">{{song.name}}</h2>
+    </div>
+
+    <div *ngIf="!isExpired()" class="container text-center text-light py-4" id="btn-banner">
+        <button class="btn btn-primary mx-4" type="button" id="trashButton" (click)="deleteSong()"><fa-icon [icon]="faTrash"></fa-icon></button>
+        <button class="btn btn-primary mx-4" type="button" id="trashButton" (click)="editSong()"><fa-icon [icon]="faEdit"></fa-icon></button>
+    </div>
+
+    <div class="container-fluid d-flex flex-column min-vh-100 px-3 text-light" id="performer-container">
+        <div class="row text-center my-2 py-4">
+            <div class="col-sm">
+                <h2>Authors</h2>
+                <div class="row-text-center py-2 author-wrapper rounded">
+                    <div *ngFor="let author of song.authors" class="py-2 my-2">
+                        <div>
+                            {{author.firstName+' '+author.lastName}}
+                        </div>
+                        <a (click)="navigateAuthor(author)" class="py-2 px-4 btn btn-primary">View songs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <h2>Performers</h2>
+                <div class="row-text-center performer-wrapper py-2 rounded">
+                    <div *ngFor="let performer of song.performers" class="py-2 my-2">
+                        <div>
+                            {{performer.firstName+' '+performer.lastName+' ('+performer.artistName+')'}}
+                        </div>
+                        <a (click)="navigatePerformer(performer)" class="py-2 px-4 btn btn-primary">View songs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center my-2 py-4">
+            <div class="col">
+                <h2>Genre</h2>
+                <div class="row-text-center performer-wrapper py-2 rounded">
+                    <h2>
+                        {{song.genre.name}}
+                    </h2>
+                    <a routerLink="/songs/genre/{{song.genre.name}}" class="py-2 px-4 btn btn-primary">View songs</a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center vh-50 text-center my-4 py-4">
+            <div class="col-2">
+                <h2>Lyrics</h2>
+                <div class="container-fluid d-flex flex-column px-3 text-light py-4 rounded vh-50" id="lyrics-wrapper">
+                    {{song.lyrics}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

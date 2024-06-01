@@ -1,0 +1,11 @@
+#most-popular-banner {
+    background: linear-gradient(to right, rgb(95, 42, 218), rgb(74, 37, 143));
+  }
+
+#song-container{
+    background-color: rgb(39, 39, 39);
+}
+
+.body{
+  background-color: rgb(39, 39, 39);
+}

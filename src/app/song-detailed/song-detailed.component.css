@@ -1,0 +1,33 @@
+#song-banner {
+   background: linear-gradient(to right, rgb(95, 42, 218), rgb(74, 37, 143));
+}
+
+body{
+   background-color: rgb(39, 39, 39);
+}
+
+
+#performer-container {
+   background-color: rgb(39, 39, 39);
+}
+
+.performer-wrapper {
+   background: linear-gradient(to right, rgb(95, 42, 218), rgb(74, 37, 143));
+}
+
+.author-wrapper {
+   background: linear-gradient(to right, rgb(95, 42, 218), rgb(74, 37, 143));
+}
+
+#lyrics-wrapper {
+   background: linear-gradient(to right, rgb(95, 42, 218), rgb(74, 37, 143));
+}
+
+.btn-primary {
+   background-color: rgb(58, 14, 141);
+   border-color: transparent;
+}
+
+.btn-primary:hover {
+   background-color: rgb(100, 52, 189);
+}

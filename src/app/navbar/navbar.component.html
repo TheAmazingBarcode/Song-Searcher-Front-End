@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./navbar.component.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <a class="navbar-brand px-3" href="#">Song Searcher</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/author">Authors</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/performer">Performers</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/genre">Genres</a>
+        </li>
+        <li *ngIf="!isExpired()" class="nav-item active">
+          <a class="nav-link" routerLink="/new">Add a Song</a>
+        </li>
+        <li *ngIf="isExpired()" class="nav-item active">
+          <a class="nav-link" routerLink="/user">Register/Log In</a>
+        </li>
+        <li *ngIf="!isExpired()" class="nav-item active">
+          <a class="nav-link" routerLink="/user">Profile</a>
+        </li>
+        <li *ngIf="!isExpired()" class="nav-item active">
+          <a class="nav-link" (click)="logOut()">Log Out</a>
+        </li>
+      </ul>
+      
+    </div>
+    <div class="ml-auto px-3">
+      <input class="my-2 form-control" type="search" placeholder="Search" (keyup.enter)="onSend($event)" aria-label="Search">
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</body>
+
+</html>

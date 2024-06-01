@@ -1,0 +1,19 @@
+{
+    "baseURL":"http://192.168.0.11",
+    "port":":7777",
+    "song":"/song",
+    "lyrics":"/lyrics",
+    "author":"/author",
+    "performer":"/performer",
+    "genre":"/genre",
+    "all":"/all",
+    "fast":"/cache",
+    "category":"/category",
+    "new":"/upload",
+    "delete":"/delete",
+    "update":"/update",
+    "search":"/search",
+    "auth":"/user",
+    "reg":"/register",
+    "login":"/logIn"
+}
